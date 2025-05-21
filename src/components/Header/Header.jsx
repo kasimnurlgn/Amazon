@@ -2,7 +2,7 @@ import { BsSearch } from "react-icons/bs";
 import { BiCart } from "react-icons/bi";
 import { SlLocationPin } from "react-icons/sl";
 import LowerHeader from "./LowerHeader";
-// import css from "./Header.module.css";
+import css from "./Header.module.css";
 
 const Header = () => {
   return (
