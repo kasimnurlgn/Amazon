@@ -2,7 +2,7 @@ import css from "./Catagory.module.css";
 const CategoryCard = ({ data }) => {
   console.log(data);
   return (
-    <div className={css.category}>
+    <div className={css.catagory}>
       <a href="">
         <span>
           <h2>{data.title}</h2>

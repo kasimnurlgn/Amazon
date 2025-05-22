@@ -3,7 +3,7 @@ import CatagoryCard from "./CatagoryCard"
 import css from "./Catagory.module.css";
 const Catagory = () => {
   return (
-    <div className={css.category__container}>
+    <div className={css.catagory__container}>
       {Data.map((item, index) => (
         <CatagoryCard key={index} data={item} />
       ))}
