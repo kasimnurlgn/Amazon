@@ -1,6 +1,6 @@
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
-import data from "./data";
+import Data from "./Data";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import css from "./CarouselEffect.module.css";
 const CarouselEffect = () => {
@@ -13,7 +13,7 @@ const CarouselEffect = () => {
         showIndicators={false}
         interval={2000}
       >
-        {data.map((image, index) => (
+        {Data.map((image, index) => (
           <img src={image} key={index} alt={`image ${index + 1}`} />
         ))}
       </Carousel>
