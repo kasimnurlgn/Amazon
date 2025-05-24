@@ -1,4 +1,4 @@
-import CarouselEffect from "../../Components/Carousel/Carousel";
+import CarouselEffect from "../../Components/Carousel/CarouselEffect";
 import Product from "../../Components/Products/Product";
 import Category from "../../Components/Category/Category";
 import Layout from "../Layout/Layout";
