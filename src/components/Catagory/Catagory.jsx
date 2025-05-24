@@ -1,5 +1,5 @@
 import Data from "./Data";
-import CatagoryCard from "./CatagoryCard"
+import CatagoryCard from "./CatagoryCard";
 import css from "./Catagory.module.css";
 const Catagory = () => {
   return (

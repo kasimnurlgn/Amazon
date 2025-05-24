@@ -3,12 +3,10 @@ import { BiCart } from "react-icons/bi";
 import { SlLocationPin } from "react-icons/sl";
 import LowerHeader from "./LowerHeader";
 import css from "./Header.module.css";
-
-
 const Header = () => {
   return (
     <section className={css.fixed}>
-      <section >
+      <section>
         <div className={css.header__container}>
           <div className={css.logo__container}>
             {/* logo */}

@@ -17,9 +17,10 @@ const CarouselEffect = () => {
           <img src={image} key={index} alt={`image ${index + 1}`} />
         ))}
       </Carousel>
-      <div className={css.hero__img}></div>
+      <div className={css.hero__img}> </div>
     </>
   );
 };
 
 export default CarouselEffect;
+
