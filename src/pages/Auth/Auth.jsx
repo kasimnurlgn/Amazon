@@ -1,11 +1,11 @@
 import React from 'react'
-
+import Layout from '../Layout/Layout';
 function Auth() {
-  return (
-    <div>
-      Auth
-    </div>
-  )
+    return (
+      <Layout>
+        Auth
+      </Layout>
+    );
 }
 
 export default Auth
