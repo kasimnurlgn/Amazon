@@ -3,7 +3,7 @@ import css from "./Product.module.css";
 import CurrencyFormat from "../CurrencyFormat/CurrencyFormat";
 
 const ProductCard = ({ product }) => {
-  let { image, title, id, rating, price, description } = product;
+  let { image, title,  rating, price, description } = product;
 
   console.log(product);
   return (
