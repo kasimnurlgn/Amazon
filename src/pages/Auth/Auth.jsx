@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Payment() {
+function Auth() {
   return (
     <div>
-      Payment
+      
     </div>
   )
 }
 
-export default Payment
+export default Auth
