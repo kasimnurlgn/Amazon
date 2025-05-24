@@ -1,16 +1,8 @@
-import React from "react";
-import Header from "./components/Header/Header";
-import CarouselEffect from "./components/Carousel/CarouselEffect";
-import Catagory from "./components/Catagory/Catagory";
-import Product from "./components/Product/Product";
-
+import AppRouter from "./Routes";
 function App() {
   return (
     <>
-      <Header />
-      <CarouselEffect />
-      <Catagory />
-      <Product />
+      <AppRouter />
     </>
   );
 }
