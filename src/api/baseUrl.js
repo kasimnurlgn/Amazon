@@ -1,2 +1,2 @@
-let productUrl = `https://fakestoreapi.com/`;
+let productUrl = `https://fakestoreapi.com`;
 export default productUrl;

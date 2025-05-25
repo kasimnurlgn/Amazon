@@ -4,12 +4,12 @@ import CurrencyFormat from "../CurrencyFormat/CurrencyFormat";
 import { Link } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
-  let { image, title,  rating, price, description } = product;
+  let { image, title, id, rating, price, description } = product;
 
   // console.log(product);
   return (
     <div className={css.card__container}>
-      <Link to="">
+      <Link to={`/products/${id}`}>
         <img src={image} alt="" />
       </Link>
       <div>

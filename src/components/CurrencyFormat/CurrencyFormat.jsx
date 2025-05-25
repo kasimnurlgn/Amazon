@@ -5,3 +5,4 @@ let CurrencyFormat = ({ amount }) => {
   return <div>{formattedAmount}</div>;
 };
 export default CurrencyFormat;
+

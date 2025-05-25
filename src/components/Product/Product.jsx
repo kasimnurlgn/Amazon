@@ -15,7 +15,7 @@ const Product = () => {
         console.log(error);
       });
   }, []);
-
+  
   return (
     <section className={css.products__container}>
       {products?.map((singleProduct) => {
