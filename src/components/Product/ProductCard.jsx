@@ -9,28 +9,25 @@ const ProductCard = ({ product, showDescription = false }) => {
 
   // console.log(product);
   return (
-    <div className={css.outer__container}>
-      <div className={css.card__container}>
-        <Link to={`/products/${id}`}>
-          <img src={image} alt="" />
-        </Link>
-        <div>
-          <h3>{title}</h3>
-          <div className={css.rating}>
-            {/* Rating  */}
-            <Rating value={rating?.rate} precision={0.1} />
-            {/* Rating Counter  */}
-            <small>{rating?.count}</small>
-          </div>
-          <div>
-            {/* price  */}
-            <CurrencyFormat amount={price} />
-          </div>
-
-          <button className={css.button}>Add to Cart</button>
+    <div className={css.card__container}>
+      <Link to={`/products/${id}`}>
+        <img src={image} alt="" />
+      </Link>
+      <div>
+        <h3>{title}</h3>
+        <div className={css.rating}>
+          {/* Rating  */}
+          <Rating value={rating?.rate} precision={0.1} />
+          {/* Rating Counter  */}
+          <small>{rating?.count}</small>
         </div>
+        <div>
+          {/* price  */}
+          <CurrencyFormat amount={price} />
+        </div>
+        {showDescription && <p>{description}</p>}
+        <button className={css.button}>Add to Cart</button>
       </div>
-      <div className={css.detail__desc}>{showDescription && <div>{description}</div>}</div>
     </div>
   );
 };
