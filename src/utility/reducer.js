@@ -10,11 +10,8 @@ export let reducer = (state, action) => {
         ...state,
         basket: [...state.basket, action.item],
       };
-      break;
 
     default:
-      return {
-        state,
-      };
+      return state;
   }
 };

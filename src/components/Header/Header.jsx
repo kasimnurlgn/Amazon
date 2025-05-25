@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { DataContext, DataProvider } from "../DataProvider/DataProvider";
 const Header = () => {
-  let [{ basket }, dispatch] = useContext(DataContext);
+  let [state, dispatch] = useContext(DataContext);
   return (
     <section className={css.fixed}>
       <section>
@@ -64,7 +64,7 @@ const Header = () => {
             {/* cart */}
             <Link to="/cart" className={css.cart}>
               <BiCart size={35} />
-              <span>{basket.length}</span>
+              <span>{state.basket.length}</span>
             </Link>
           </div>
         </div>
