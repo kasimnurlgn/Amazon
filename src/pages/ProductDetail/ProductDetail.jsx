@@ -28,7 +28,7 @@ function ProductDetail() {
       {isLoading ? (
         <Loader />
       ) : (
-        <ProductCard product={product} showDescription={true} />
+        <ProductCard product={product} flex={true} renderDesc={true} />
       )}
     </Layout>
   );
