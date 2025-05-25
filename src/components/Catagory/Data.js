@@ -3,7 +3,7 @@ let Data = [
     title: "Electronics",
     category: "electronics",
     name: "Samsung 49-Inch Curved Gaming Monitor.",
-    imgLink: "https://fakestoreapi.com/img/61mtL65D4cL._AC_SX679_.jpg",
+    imgLink: "https://fakestoreapi.com/img/81QpkIctqPL._AC_SX679_.jpg",
   },
   {
     title: "Jewelery",
