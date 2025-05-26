@@ -1,5 +1,6 @@
 import { Rating } from "@mui/material";
 import css from "./Product.module.css";
+
 import CurrencyFormat from "../CurrencyFormat/CurrencyFormat";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
@@ -23,11 +24,11 @@ const ProductCard = ({ product, flex, renderDesc }) => {
       },
     });
   };
-  console.log(state)
+  console.log(state);
   // console.log(product);
   return (
     <div
-      className={`${css.card__container} ${flex ? css.product__flexed : ""}`}
+      className={`${css.card__container}  ${flex ? css.product__flexed : ""}`}
     >
       <Link to={`/products/${id}`}>
         <img src={image} alt="" />
