@@ -1,4 +1,3 @@
-
 import React, { useContext } from "react";
 import Layout from "../../pages/Layout/Layout";
 import { DataContext } from "../../components/DataProvider/DataProvider";
