@@ -52,7 +52,7 @@ const Cart = () => {
                     <button className={css.btn} onClick={() => increment(item)}>
                       <IoIosArrowUp size={20} />
                     </button>
-                    <span>{item.amount}</span>
+                    <span className={css.item__amount}>{item.amount}</span>
                     <button
                       className={css.btn}
                       onClick={() => decrement(item.id)}
