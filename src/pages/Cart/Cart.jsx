@@ -1,17 +1,19 @@
+/* eslint-disable react/jsx-key */
 import React, { useContext } from "react";
 import Layout from "../../pages/Layout/Layout";
 import { DataContext } from "../../components/DataProvider/DataProvider";
 import ProductCard from "../../components/Product/ProductCard";
-import CurrencyFormat from "../../components/CurrencyFormat/CurrencyFormat";
 import { Link } from "react-router-dom";
 import css from "./Cart.module.css";
 import Type from "../../utility/action.type";
 import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
+import CurrencyFormat from "../../components/CurrencyFormat/CurrencyFormat";
 const Cart = () => {
   const [{ basket, user }, dispatch] = useContext(DataContext);
+  console.log(basket);
   const total = basket?.reduce((amount, item) => {
-    return item?.price * item.amount + amount;
+    return amount + Number(item.price) * (item.amount || 1);
   }, 0);
 
   const increment = (item) => {
