@@ -1,4 +1,3 @@
-
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useContext } from "react";
 import css from "./SignUp.module.css";
@@ -111,7 +110,11 @@ const Auth = () => {
             className={css.login__btn}
             name="signin"
           >
-            {loading.signIn ? <HashLoader color="#3498db" size={15} /> : "Sign In"}
+            {loading.signIn ? (
+              <HashLoader color="#3498db" size={15} />
+            ) : (
+              "Sign In"
+            )}
           </button>
         </form>
         {/* agreement  */}
@@ -124,6 +127,7 @@ const Auth = () => {
           name="signup"
           onClick={authHandler}
           className={css.login__register}
+         
         >
           {loading.signUp ? (
             <HashLoader color="#3498db" size={15} />
