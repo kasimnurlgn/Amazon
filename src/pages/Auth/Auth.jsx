@@ -111,7 +111,7 @@ const Auth = () => {
             className={css.login__btn}
             name="signin"
           >
-            {loading.signIn ? <HashLoader color="#000" size={15} /> : "Sign In"}
+            {loading.signIn ? <HashLoader color="#3498db" size={15} /> : "Sign In"}
           </button>
         </form>
         {/* agreement  */}
@@ -126,7 +126,7 @@ const Auth = () => {
           className={css.login__register}
         >
           {loading.signUp ? (
-            <HashLoader color="#000" size={15} />
+            <HashLoader color="#3498db" size={15} />
           ) : (
             "Create Your Amazon Account"
           )}
