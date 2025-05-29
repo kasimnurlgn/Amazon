@@ -6,6 +6,7 @@ import css from "./Header.module.css";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { DataContext, DataProvider } from "../DataProvider/DataProvider";
+import { auth } from "../../utility/firebase";
 const Header = () => {
   let [{ user, basket }, dispatch] = useContext(DataContext);
   let totalItem = basket?.reduce((amount, item) => {
@@ -54,16 +55,20 @@ const Header = () => {
               </select>
             </Link>
 
-            <Link to="/auth" className={css.accounts}>
+            <Link to={!user && "/auth"} className={css.accounts}>
               <div>
                 {user ? (
-                  <p>Hello {user?.email.split("@")[0]} </p>
+                  <>
+                    <p>Hello {user?.email.split("@")[0]} </p>
+                    <span onClick={() => auth.signOut()}>Sign Out</span>
+                  </>
                 ) : (
-                  <p>Sign In</p>
+                  <>
+                    <p>Sign In</p>
+                    <span>Account & Lists</span>
+                  </>
                 )}
               </div>
-
-              <span>Account & Lists</span>
             </Link>
 
             {/* orders */}
