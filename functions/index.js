@@ -3,29 +3,35 @@ const logger = require("firebase-functions/logger");
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
-const { messaging } = require("firebase-admin");
 dotenv.config();
 const stripe = require("stripe")(process.env.STRIPE_KEY);
+
 const app = express();
-app.use(
-  cors({
-    origin: true,
-  })
-);
+app.use(cors({ origin: "http://localhost:5173" }));
+
 app.use(express.json());
+
 app.get("/", (req, res) => {
   res.status(200).json({
-    message: "success!",
+    message: "success",
   });
 });
 
-app.post("/payment/create", async (req, res) => {
-    let total = req.body.total;
-    if (total > 0) {
-        console.log("Payment is made", total)
-        res.send(total)
-    }
-})
+app.post("/payments/create", async (req, res) => {
+  const total = parseInt(req.body.total);
 
+  if (total > 0) {
+    const paymentIntent = await stripe.paymentIntents.create({
+      amount: total,
+      currency: "usd",
+    });
+    console.log(paymentIntent);
+    res.status(201).json({
+      clientSecret: paymentIntent.client_secret,
+    });
+  } else {
+    res.status(403).json({ message: "Total must be greater than 0" });
+  }
+});
 
 exports.api = onRequest(app);
