@@ -11,6 +11,7 @@ import { loadStripe } from "@stripe/stripe-js";
 const stripePromise = loadStripe(
   "pk_test_51QERYyL1uqahjXCLjem3JCxSXggXXa5IuPbQ39lx8MEWygA4CdCvHL6z3XIb3an0mGuwfKnPlXet93kdiJNnBrpP00wrhcNSZB"
 );
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 const AppRouter = () => {
   return (
     <Routes>
@@ -19,9 +20,11 @@ const AppRouter = () => {
       <Route
         path="/payments"
         element={
-          <Elements stripe={stripePromise}>
-            <Payment />
-          </Elements>
+          <ProtectedRoute msg={"You must login to pay"} redirect={"/payments"}>
+            <Elements stripe={stripePromise}>
+              <Payment />
+            </Elements>
+          </ProtectedRoute>
         }
       />
       <Route path="/orders" element={<Orders />} />
