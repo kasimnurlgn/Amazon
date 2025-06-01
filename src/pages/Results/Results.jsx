@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import Layout from "../Layout/Layout";
 import ProductCard from "../../components/Product/ProductCard";
 import css from "./Results.module.css";
-import Loader from "../../Components/Loader/Loader";
+import Loader from "../../components/Loader/Loader";
 const Results = () => {
   let [results, setResults] = useState([]);
   let [isLoading, setIsLoading] = useState(false);
