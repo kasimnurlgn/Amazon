@@ -1,6 +1,6 @@
-import CarouselEffect from "../../Components/Carousel/CarouselEffect";
-import Product from "../../Components/Product/Product";
-import Category from "../../Components/Catagory/Catagory";
+import CarouselEffect from "../../components/Carousel/CarouselEffect";
+import Product from "../../components/Product/Product";
+import Category from "../../components/Catagory/Catagory";
 import Layout from "../Layout/Layout";
 
 const Landing = () => {
