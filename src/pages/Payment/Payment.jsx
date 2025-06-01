@@ -10,8 +10,9 @@ import { ClipLoader } from "react-spinners";
 import { db } from "../../utility/firebase.js";
 import { useNavigate } from "react-router-dom";
 import Type from "../../utility/action.type.js";
-
+import { collection, doc, setDoc } from "firebase/firestore";
 const Payment = () => {
+  let [paymentError, setPaymentError] = useState("");
   const [{ basket, user }, dispatch] = useContext(DataContext);
   const totalItem = basket?.reduce((amount, item) => {
     return item.amount + amount;
@@ -30,31 +31,48 @@ const Payment = () => {
     console.log(e);
     e?.error?.message ? setCardError(e?.error?.message) : setCardError("");
   };
+
   const handlePayment = async (e) => {
     e.preventDefault();
     try {
       setProcessing(true);
+      setPaymentError(null);
+
       const response = await axiosInstance({
-        method: "POST", // Fixed "method"
+        method: "POST",
         url: `/payments/create`,
         data: {
-          total: Math.round(total * 100), // also make sure it's an integer
+          total: Math.round(total * 100),
         },
-        // Correctly use template literal
       });
 
-      console.log(response.data);
-      const clientSecret = response.data?.clientSecret;
-      const confirmation = await stripe.confirmCardPayment(clientSecret, {
+      if (!response.data?.clientSecret) {
+        throw new Error("Failed to retrieve client secret from payment API");
+      }
+
+      const clientSecret = response.data.clientSecret;
+      const { paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
           card: elements.getElement(CardElement),
         },
       });
-      console.log(confirmation);
-     
+
+      // Use modular Firestore syntax
+      await setDoc(
+        doc(collection(db, "users", user.uid, "orders"), paymentIntent.id),
+        {
+          basket: basket,
+          amount: paymentIntent.amount,
+          created: paymentIntent.created,
+        }
+      );
+
+      dispatch({ type: Type.EMPTY_BASKET });
       setProcessing(false);
+      navigate("/orders", { state: { msg: "You have placed a new order" } });
     } catch (error) {
-      console.error(error);
+      console.error("Payment error:", error);
+      setPaymentError("Payment failed. Please try again.");
       setProcessing(false);
     }
   };

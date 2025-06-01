@@ -38,9 +38,9 @@ const Cart = () => {
           {basket?.length == 0 ? (
             <p> Your Amazon Cart is empty </p>
           ) : (
-            basket.map((item) => {
+            basket.map((item, index) => {
               return (
-                <section className={css.cart__product}>
+                <section className={css.cart__product} key={index}>
                   <ProductCard
                     product={item}
                     renderDesc={true}
