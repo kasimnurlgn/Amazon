@@ -27,7 +27,17 @@ const AppRouter = () => {
           </ProtectedRoute>
         }
       />
-      <Route path="/orders" element={<Orders />} />
+      <Route
+        path="/orders"
+        element={
+          <ProtectedRoute
+            msg={"You must login to see your orders"}
+            redirect={"/orders"}
+          >
+            <Orders />
+          </ProtectedRoute>
+        }
+      />
       <Route path="/category/:categoryName" element={<Results />} />
       <Route path="/products/:id" element={<ProductDetail />} />
       <Route path="/cart" element={<Cart />} />
