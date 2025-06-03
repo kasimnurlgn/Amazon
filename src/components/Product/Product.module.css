@@ -82,7 +82,7 @@
   }
   .renderDesc {
     width: 200px;
-    text-align: justify;
+    /* text-align: justify; */
     font-size: medium;
   }
 }
