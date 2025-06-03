@@ -30,11 +30,11 @@ const Orders = () => {
           }))
         );
       });
-      return () => unsubscribe(); // Cleanup subscription on unmount
+      return () => unsubscribe(); 
     } else {
       setOrders([]);
     }
-  }, [user]); // Add user as dependency
+  }, [user]); 
 
   return (
     <Layout>

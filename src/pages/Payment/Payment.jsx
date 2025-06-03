@@ -57,7 +57,6 @@ const Payment = () => {
         },
       });
 
-      // Use modular Firestore syntax
       await setDoc(
         doc(collection(db, "users", user.uid, "orders"), paymentIntent.id),
         {

@@ -6,6 +6,7 @@ export const initialState = {
 };
 
 export const reducer = (state, action) => {
+  // This function controls how your state changes based on the action that gets dispatched.
   switch (action.type) {
     case Type.ADD_TO_BASKET: {
       const existingItem = state.basket?.find(

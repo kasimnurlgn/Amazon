@@ -39,16 +39,14 @@
 }
 .products__container {
   display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(200px, 1fr)
-  ); /* Creates 5 equal columns */
-  max-width: 1200px; /* Optional: Set a max width for your grid */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  max-width: 1200px;
   margin: 100px auto; /* Center the grid with auto margins */
   gap: 50px; /* Space between grid items */
   justify-items: center; /* Center items within their grid cells */
   box-sizing: border-box;
 }
+
 .product__flexed {
   box-shadow: none;
   height: auto;
@@ -73,7 +71,7 @@
   height: auto;
 }
 .renderDesc {
-  width: 470px;
+  width: 300px;
   text-align: justify;
   font-size: medium;
 }
@@ -81,5 +79,10 @@
   .product__flexed {
     display: flex;
     flex-direction: column;
+  }
+  .renderDesc {
+    width: 200px;
+    text-align: justify;
+    font-size: medium;
   }
 }
